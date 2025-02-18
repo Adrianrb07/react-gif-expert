@@ -1,34 +1,33 @@
-import { useState } from "react"
+import { useState } from 'react';
 
 export const AddCategory = ({ onNewCategory }) => {
+  const [inputValue, setInputValue] = useState('');
 
-    const [inputValue, setinputValue] = useState('');
+  const onInputChange = ({ target }) => {
+    setInputValue(target.value);
+  };
 
-    const onImputChange = ({ target }) => {
-        setinputValue(target.value);
-        // console.log(target.value);
-        // console.log('onImputChange')
-    }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim().length <= 1) return;
+    onNewCategory(inputValue.trim());
+    setInputValue('');
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        if (inputValue.trim().length <= 1) return;
-
-        // setCategories( categories => [ inputValue, ...categories ] );
-        onNewCategory( inputValue.trim() );
-        setinputValue('');
-    }
-
-
-    return (
-        <form onSubmit={ onSubmit }>
-            <input
-                type="text"
-                placeholder="Buscar gifs"
-                value={inputValue}
-                onChange={ onImputChange }
-            />
-        </form>
-    )
-}
+  return (
+    <form onSubmit={onSubmit} className="search-form">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Buscar gifs"
+          value={inputValue}
+          onChange={onInputChange}
+          className="search-input"
+        />
+        <button type="submit" className="search-button">
+          <i className="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  );
+};

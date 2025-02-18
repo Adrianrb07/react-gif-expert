@@ -1,33 +1,26 @@
 import { GifItem } from './GifItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 
-// category
-// 1. Llamado al helper getGifs
-// 2. Cargar los gifs en el estado
-// 3. Mostrar los gifs en el componente
-export const GifGrid = ({ category }) => {
+export const GifGrid = ({ category, onRemoveCategory }) => {
+  const { images, isLoading } = useFetchGifs(category);
 
-    const { images, isLoading } = useFetchGifs(category);
-    console.log(isLoading)
-
-    return (
-        <>
-            <h3>{category}</h3>
-
-            { 
-                isLoading && <p>Cargando...</p> 
-            }
-
-            <div className="card-grid">
-                {
-                    images.map( ( image ) => (
-                        <GifItem 
-                            key={ image.id }
-                            { ...image }
-                        />
-                    ))
-                }
-            </div>
-        </>
-    )
-}
+  return (
+    <div className="category-container">
+      <div className="category-header">
+        <h3 className="category">{category}</h3>
+        <div className="tooltip-container">
+          <button className="delete-button" onClick={() => onRemoveCategory(category)}>
+            <i className="fas fa-trash-alt"></i>
+            <span className="tooltip-text">Eliminar categoría</span>
+          </button>
+        </div>
+      </div>
+      {isLoading && <p>Loading...</p>}
+      <div className="card-grid">
+        {images.map((image) => (
+          <GifItem key={image.id} {...image} />
+        ))}
+      </div>
+    </div>
+  );
+};

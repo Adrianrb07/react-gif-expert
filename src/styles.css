@@ -1,6 +1,6 @@
 * {
   font-family: Helvetica, Arial, sans-serif;
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(238, 233, 233);
 }
 
 body {
@@ -19,9 +19,40 @@ input {
 }
 
 .title {
-  font-size: 4rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #100f11;
   text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s;
+}
+
+.subTitle {
+  font-size: 1rem;
+  color: #6c6772;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s;
+}
+
+.category {
+  font-size: 2rem;
+  color: #2a292c;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s;
+}
+
+.category-separator {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  margin: 20px 0;
 }
 
 h2 {
@@ -66,4 +97,119 @@ h3 {
 
 .card img {
   width: 100%;
+}
+
+.gif-image {
+  width: 200px; /* Ajusta el ancho según tus necesidades */
+  height: 200px; /* Ajusta la altura según tus necesidades */
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+  cursor: pointer; /* Cambia el cursor a un puntero (dedo) */
+}
+
+.category-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.delete-button:hover {
+  color: rgb(209, 76, 76) !important;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(117, 109, 109);
+  color: #ece4e4;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Posición del mensaje */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem; /* Ajusta el tamaño de la letra */
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(95, 83, 83) transparent transparent transparent;
+}
+
+.delete-button:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 50%;
+}
+
+.search-input {
+  border: none;
+  padding: 10px 15px;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+  border-radius: 25px 0 0 25px;
+}
+
+.search-button {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  color: white;
+}
+
+.search-button i {
+  font-size: 1.2rem;
 }
