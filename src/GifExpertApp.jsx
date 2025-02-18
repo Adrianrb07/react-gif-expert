@@ -19,12 +19,14 @@ export const GifExpertApp = () => {
       <h1 className='title'>Gif Expert App</h1>
       <h5 className='subTitle'>Todos los gifs que quieras!!!</h5>
       <AddCategory onNewCategory={onAddCategory} />
-      {categories.map((category) => (
-        <GifGrid
-          key={category}
-          category={category}
-          onRemoveCategory={onRemoveCategory}
-        />
+      {categories.map((category, index) => (
+        <div key={category}>
+          <GifGrid
+            category={category}
+            onRemoveCategory={onRemoveCategory}
+          />
+          {index < categories.length - 1 && <hr className="category-separator" />}
+        </div>
       ))}
     </>
   );
