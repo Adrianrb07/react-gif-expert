@@ -89,7 +89,7 @@ h3 {
 .card p {
   background-color: white;
   flex: 1;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 5px;
   padding: 5px 20px 0px 20px;
   text-align: center;
@@ -100,8 +100,8 @@ h3 {
 }
 
 .gif-image {
-  width: 200px; /* Ajusta el ancho según tus necesidades */
-  height: 200px; /* Ajusta la altura según tus necesidades */
+  width: 100px; /* Ajusta el ancho según tus necesidades */
+  height: 150px; /* Ajusta la altura según tus necesidades */
   object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
   cursor: pointer; /* Cambia el cursor a un puntero (dedo) */
 }
