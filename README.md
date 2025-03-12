@@ -36,7 +36,7 @@ Para ejecutar esta aplicación en tu entorno local, sigue estos pasos:
 
 4. Inicia la aplicación:
     ```bash  
-    yarn install
+    yarn dev
 
 ## Despliegue
 
